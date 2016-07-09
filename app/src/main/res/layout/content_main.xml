@@ -10,6 +10,13 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:id="@+id/offset_text"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center"
