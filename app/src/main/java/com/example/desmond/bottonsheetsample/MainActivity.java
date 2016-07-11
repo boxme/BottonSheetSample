@@ -3,10 +3,12 @@ package com.example.desmond.bottonsheetsample;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -46,9 +48,17 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View peakView = findViewById(R.id.drag_me);
-                mBottomSheetBehaviour.setPeekHeight(peakView.getHeight());
-                peakView.requestLayout();
+                mBottomSheetBehaviour.setPeekHeight(mStateView.getHeight());
+                mStateView.requestLayout();
+            }
+        });
+
+        findViewById(R.id.modal).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BottomSheetDialogFragment fragment = new CustomBottomSheetDialogFragment();
+                Log.d("MainActivity", fragment.getTag() != null ? fragment.getTag() : "Empty Tag");
+                fragment.show(getSupportFragmentManager(), fragment.getTag());
             }
         });
     }
