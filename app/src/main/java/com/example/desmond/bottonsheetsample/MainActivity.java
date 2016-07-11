@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         mStateView.setText(getStateAsString(newState));
     }
 
-    private String getStateAsString(int newState) {
+    static String getStateAsString(int newState) {
         switch (newState) {
             case BottomSheetBehavior.STATE_COLLAPSED:
                 return "Collapsed";
